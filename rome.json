@@ -1,0 +1,3 @@
+{
+  "files": { "ignore": ["dist", "coverage", ".turbo", "vite.config.ts-timestamp-*"] }
+}
