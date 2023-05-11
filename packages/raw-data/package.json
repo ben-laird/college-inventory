@@ -1,0 +1,28 @@
+{
+  "name": "@college-inventory/raw-data",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "start": "vitest",
+    "dev": "vitest",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "cov": "vitest run --coverage",
+    "cov:watch": "vitest run --coverage",
+    "cov:detail": "vitest run --coverage && open-cli index.html",
+    "lint": "tsc && rome check .",
+    "format": "rome format .",
+    "uncache": "rm -rf .turbo",
+    "clean": "rm -rf .turbo && rm -rf dist && rm -rf node_modules",
+    "push": "prisma db push"
+  },
+  "devDependencies": {
+    "prisma": "^4.14.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.14.0"
+  }
+}
