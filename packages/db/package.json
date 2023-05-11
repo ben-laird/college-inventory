@@ -16,6 +16,13 @@
     "lint": "tsc && rome check .",
     "format": "rome format .",
     "uncache": "rm -rf .turbo",
-    "clean": "rm -rf .turbo && rm -rf dist && rm -rf node_modules"
+    "clean": "rm -rf .turbo && rm -rf dist && rm -rf node_modules",
+    "push": "prisma db push"
+  },
+  "devDependencies": {
+    "prisma": "^4.14.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.14.0"
   }
 }

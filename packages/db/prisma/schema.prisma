@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Item {
+  name        String  @id
+  description String?
+
+  Contexts Context_Item[]
+}
+
+model Context_Item {
+  Item        Item    @relation(fields: [itemName], references: [name])
+  itemName    String
+  Context     Context @relation(fields: [contextName], references: [name])
+  contextName String
+
+  @@id([contextName, itemName])
+}
+
+model Context {
+  name        String @id
+  description String
+
+  Routines Context_Routine[]
+  Items    Context_Item[]
+}
+
+model Context_Routine {
+  Context     Context @relation(fields: [contextName], references: [name])
+  contextName String
+  Routine     Routine @relation(fields: [routineName], references: [name])
+  routineName String
+
+  @@id([contextName, routineName])
+}
+
+model Routine {
+  name        String @id
+  description String
+
+  Contexts Context_Routine[]
+}
+
+model Schedule {
+  id Int @id @default(autoincrement())
+}
